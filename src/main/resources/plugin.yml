@@ -1,0 +1,16 @@
+name: light
+author: lightPlugins
+version: 0.0.1
+main: de.lightplugins.light.Light
+api-version: 1.17
+depend: []
+softdepend: [Vault, PlaceholderAPI, ProtocolLib]
+loadbefore: []
+libraries:
+  - org.mariadb.jdbc:mariadb-java-client:2.7.4
+  - net.kyori:adventure-api:4.11.0
+#  - com.zaxxer:HikariCP:5.1.0
+commands:
+  light:
+    description: The root command for administrated things
+    aliases: [l]
