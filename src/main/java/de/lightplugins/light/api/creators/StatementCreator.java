@@ -43,7 +43,7 @@ public class StatementCreator {
      * @param condition the condition for the WHERE clause
      * @return the generated SQL UPDATE statement
      */
-    public static String createUpdateStatement(String tableName, String setValues, String condition) {
+    public String createUpdateStatement(String tableName, String setValues, String condition) {
         // Initialize the statement
         StringBuilder statement = new StringBuilder();
         statement.append("UPDATE ").append(tableName).append(" SET ");

@@ -24,7 +24,7 @@ public class Light extends JavaPlugin {
         getInstance = this;
 
         api = new LightAPI(this);
-        database = api.createNewFile("config.yml", true);
+        database = api.createNewFile("database.yml", true);
 
         Connection connection = new Connection(this);
 

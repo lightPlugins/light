@@ -16,7 +16,7 @@ public class PreparedCreator {
      * @return the prepared statement with the parameters set
      * @throws SQLException if there is an error in creating the prepared statement or setting the parameters
      */
-    private PreparedStatement preparedStatement(String query, Object... params) throws SQLException {
+    public PreparedStatement preparedStatement(String query, Object... params) throws SQLException {
 
         // Create a prepared statement for the given query
         PreparedStatement ps = Light.api.getConnection().prepareStatement(query);
