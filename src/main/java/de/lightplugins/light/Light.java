@@ -36,7 +36,7 @@ public class Light extends JavaPlugin {
 
         if(ds.isClosed()) {
             api.getDebugPrinting().print("§4Could not connect to the database. Please check your database.yml");
-            api.getDebugPrinting().print("§4Light is shutting down...");
+            api.getDebugPrinting().print("§4Light is shutting down... ");
             onDisable();
         }
 
