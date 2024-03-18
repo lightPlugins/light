@@ -1,8 +1,8 @@
-package de.lightplugins.light.api.database;
+package io.lightplugins.light.api.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import de.lightplugins.light.Light;
+import io.lightplugins.light.Light;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;

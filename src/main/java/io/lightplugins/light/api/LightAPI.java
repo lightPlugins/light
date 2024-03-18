@@ -1,10 +1,12 @@
-package de.lightplugins.light.api;
+package io.lightplugins.light.api;
 
-import de.lightplugins.light.Light;
-import de.lightplugins.light.api.files.FileManager;
-import de.lightplugins.light.api.files.MultiFileManager;
-import de.lightplugins.light.api.util.DebugPrinting;
-import de.lightplugins.light.api.creators.StatementCreator;
+import io.lightplugins.light.Light;
+import io.lightplugins.light.api.creators.FutureCreator;
+import io.lightplugins.light.api.creators.PreparedCreator;
+import io.lightplugins.light.api.files.FileManager;
+import io.lightplugins.light.api.files.MultiFileManager;
+import io.lightplugins.light.api.util.DebugPrinting;
+import io.lightplugins.light.api.creators.StatementCreator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
@@ -93,11 +95,19 @@ public class LightAPI {
      */
     public Connection getConnection() throws SQLException {
         // Check if the datasource is closed, return null if closed, otherwise return a connection.
-        return light.ds.isClosed() ? null : light.ds.getConnection();
+        return light.ds.getConnection();
     }
 
     public StatementCreator getStatementCreator() {
         return new StatementCreator();
+    }
+
+    public PreparedCreator getPreparedCreator() {
+        return new PreparedCreator();
+    }
+
+    public FutureCreator getFutureCreator () {
+        return new FutureCreator();
     }
 
 

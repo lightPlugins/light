@@ -1,4 +1,4 @@
-package de.lightplugins.light.api.creators;
+package io.lightplugins.light.api.creators;
 
 public class StatementCreator {
 
@@ -19,9 +19,11 @@ public class StatementCreator {
 
         // Add each column to the SQL statement with comma separation
         for (int i = 0; i < columns.length; i++) {
-            statement.append(columns[i]);
-            if (i < columns.length - 1) {
-                statement.append(", ");
+            if (!columns[i].equals(primaryKey)) {
+                statement.append(columns[i]);
+                if (i < columns.length - 1) {
+                    statement.append(", ");
+                }
             }
         }
 

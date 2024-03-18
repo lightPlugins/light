@@ -1,6 +1,6 @@
-package de.lightplugins.light.api.files;
+package io.lightplugins.light.api.files;
 
-import de.lightplugins.light.Light;
+import io.lightplugins.light.Light;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -1,4 +1,4 @@
-package de.lightplugins.light.api.util;
+package io.lightplugins.light.api.util;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

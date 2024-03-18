@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.lightplugins.light.Light</groupId>
+    <groupId>io.lightplugins.light</groupId>
     <artifactId>light</artifactId>
     <version>0.0.1</version>
 
@@ -141,7 +141,7 @@
                                     <shadedPattern>de.lightplugins.light.api.hikari</shadedPattern>
                                 </relocation>
                             </relocations>
-                            <outputFile>C:/Users/phili/Desktop/minecraft-server/plugins/${project.artifactId}-${project.version}-SNAPSHOT.jar</outputFile>
+                            <outputFile>C:/Users/phili/Documents/lightPrison/prison-dev-server/plugins/${project.artifactId}-${project.version}-SNAPSHOT.jar</outputFile>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

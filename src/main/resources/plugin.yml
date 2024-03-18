@@ -1,7 +1,7 @@
 name: light
 author: lightPlugins
 version: 0.0.1
-main: de.lightplugins.light.Light
+main: io.lightplugins.light.Light
 api-version: 1.17
 depend: []
 softdepend: [Vault, PlaceholderAPI, ProtocolLib]

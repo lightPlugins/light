@@ -1,12 +1,12 @@
-package de.lightplugins.light.api.util;
+package io.lightplugins.light.api.util;
 
 public enum SupportedDataType {
     INTEGER,
-    REAL,
-    TEXT,
+    DOUBLE,
     BLOB,
     DATE,
     TIME,
+    STRING,
     TIMESTAMP;
 
     /**

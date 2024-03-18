@@ -1,4 +1,4 @@
-package de.lightplugins.light.api.files;
+package io.lightplugins.light.api.files;
 
 import java.io.File;
 import java.io.IOException;

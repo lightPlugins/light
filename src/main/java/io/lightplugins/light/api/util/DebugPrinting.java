@@ -1,6 +1,6 @@
-package de.lightplugins.light.api.util;
+package io.lightplugins.light.api.util;
 
-import de.lightplugins.light.Light;
+import io.lightplugins.light.Light;
 import org.bukkit.Bukkit;
 
 public class DebugPrinting {
