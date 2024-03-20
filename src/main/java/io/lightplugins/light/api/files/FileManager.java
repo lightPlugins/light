@@ -4,6 +4,7 @@ import io.lightplugins.light.Light;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,15 +21,15 @@ public class FileManager {
      *
      */
 
-    private final Light backpack;
+    private final JavaPlugin plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
     private final String configName;
     private final boolean loadDefaultsOneReload;
 
-    public FileManager(Light plugin, String configName, boolean loadDefaultsOneReload) {
-        this.backpack = plugin;
-        this.loadDefaultsOneReload = loadDefaultsOneReload;
+    public FileManager(JavaPlugin plugin, String configName, boolean loadDefaultsOnReload) {
+        this.plugin = plugin;
+        this.loadDefaultsOneReload = loadDefaultsOnReload;
         this.configName = configName;
         saveDefaultConfig(configName);
 
@@ -36,13 +37,13 @@ public class FileManager {
 
     public void reloadConfig(String configName) {
         if(this.configFile == null)
-            this.configFile = new File(this.backpack.getDataFolder(), configName);
+            this.configFile = new File(this.plugin.getDataFolder(), configName);
 
-        this.backpack.reloadConfig();
+        this.plugin.reloadConfig();
 
         this.dataConfig = YamlConfiguration.loadConfiguration(this.configFile);
 
-        InputStream defaultStream = this.backpack.getResource(configName);
+        InputStream defaultStream = this.plugin.getResource(configName);
         if(defaultStream != null) {
             YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultStream));
             this.dataConfig.setDefaults(defaultConfig);
@@ -64,22 +65,22 @@ public class FileManager {
         try {
             this.getConfig().save(this.configFile);
         } catch (IOException e) {
-            backpack.getLogger().log(Level.SEVERE, "Could not save config to " + this.configFile, e);
+            plugin.getLogger().log(Level.SEVERE, "Could not save config to " + this.configFile, e);
         }
     }
 
     private void saveDefaultConfig(String configName) {
         if (this.configFile == null)
-            this.configFile = new File(this.backpack.getDataFolder(), this.configName);
+            this.configFile = new File(this.plugin.getDataFolder(), this.configName);
 
         if (!this.configFile.exists()) {
-            this.backpack.saveResource(configName, false);
+            this.plugin.saveResource(configName, false);
         } else {
             // Merge the default config into the existing config
 
             if(loadDefaultsOneReload) {
                 FileConfiguration defaultConfig = YamlConfiguration.loadConfiguration(
-                        new InputStreamReader(Objects.requireNonNull(this.backpack.getResource(configName))));
+                        new InputStreamReader(Objects.requireNonNull(this.plugin.getResource(configName))));
                 FileConfiguration existingConfig = getConfig();
                 for (String key : defaultConfig.getKeys(true)) {
                     if (!existingConfig.getKeys(true).contains(key)) {

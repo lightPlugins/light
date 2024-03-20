@@ -141,7 +141,7 @@
                                     <shadedPattern>de.lightplugins.light.api.hikari</shadedPattern>
                                 </relocation>
                             </relocations>
-                            <outputFile>C:/Users/phili/Documents/lightPrison/prison-dev-server/plugins/${project.artifactId}-${project.version}-SNAPSHOT.jar</outputFile>
+                            <outputFile>C:/Users/phili/Documents/lightEconomy-v6/lighteco-dev-server/plugins/${project.artifactId}-${project.version}-SNAPSHOT.jar</outputFile>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

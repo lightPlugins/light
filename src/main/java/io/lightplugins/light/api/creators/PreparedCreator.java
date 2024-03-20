@@ -2,7 +2,6 @@ package io.lightplugins.light.api.creators;
 
 import io.lightplugins.light.Light;
 import io.lightplugins.light.api.util.SupportedDataType;
-import org.bukkit.Bukkit;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

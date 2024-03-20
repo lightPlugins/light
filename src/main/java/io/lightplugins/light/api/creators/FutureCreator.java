@@ -1,7 +1,5 @@
 package io.lightplugins.light.api.creators;
 
-import org.bukkit.Bukkit;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,11 +15,8 @@ public class FutureCreator {
      */
     public CompletableFuture<ResultSet> executeQuery(PreparedStatement ps) {
         return CompletableFuture.supplyAsync(() -> {
-            try {
-                // return the result set
-                Bukkit.getConsoleSender().sendMessage("TEST HIER 1 ->");
-                ResultSet rs = ps.executeQuery();
-                Bukkit.getConsoleSender().sendMessage("TEST HIER 2 ->");
+
+            try (ResultSet rs = ps.executeQuery()) {
                 return rs;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -37,6 +32,7 @@ public class FutureCreator {
      */
     public CompletableFuture<Boolean> execute(PreparedStatement ps) {
         return CompletableFuture.supplyAsync(() -> {
+
             try {
                 // return true if successful
                 return ps.execute();
@@ -47,12 +43,10 @@ public class FutureCreator {
     }
 
     /**
-     * Asynchronously executes an update query using the provided PreparedStatement.
+     * Synchronously executes an update query using the provided PreparedStatement.
      *
      * @param ps the PreparedStatement object containing the update query
-     * @return a CompletableFuture<Integer> representing the number of rows updated
+     * @return an Integer representing the number of rows updated
      */
-    public Integer executeUpdate(PreparedStatement ps) throws SQLException {
-        return ps.executeUpdate();
-    }
+    public Integer executeUpdate(PreparedStatement ps) throws SQLException { return ps.executeUpdate(); }
 }
